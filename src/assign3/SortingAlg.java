@@ -12,7 +12,7 @@ import java.util.Comparator;
  * @author Andreas
  */
 public class SortingAlg {
-    
+
     public static Tshirt[] bubbleSort(Tshirt[] arraytosort, Comparator comparator) {
         int n = arraytosort.length;
         Tshirt temp;
@@ -28,5 +28,31 @@ public class SortingAlg {
         }
         return arraytosort;
     }
-    
+
+    public static Tshirt[] quickSort(Tshirt[] array, int begin, int end, Comparator comparator) {
+        if (begin < end) {
+            int partitionIndex = partition(array, begin, end, comparator);
+            quickSort(array, begin, partitionIndex - 1, comparator);
+            quickSort(array, partitionIndex + 1, end, comparator);
+        }
+        return array;
+    }
+
+    private static int partition(Tshirt arr[], int begin, int end, Comparator comparator) {
+        Tshirt pivot = arr[end];
+        int i = begin - 1;
+        for (int j = begin; j < end; j++) {
+            if (comparator.compare(arr[j], pivot) < 0) {
+                i++;
+                Tshirt swapTemp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = swapTemp;
+            }
+        }
+        Tshirt swapTemp = arr[i + 1];
+        arr[i + 1] = arr[end];
+        arr[end] = swapTemp;
+        return i + 1;
+    }
+
 }

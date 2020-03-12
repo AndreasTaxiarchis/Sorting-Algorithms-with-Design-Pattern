@@ -12,20 +12,24 @@ import java.util.Comparator;
  *
  * @author Andreas
  */
-public class TshirtColorComparator implements Comparator<Tshirt>{
+public class TshirtColorComparator implements Comparator<Tshirt> {
 
     @Override
     public int compare(Tshirt o1, Tshirt o2) {
         int comparison = o1.c.name().compareTo(o2.c.name());
-        if (comparison<0) return -1;
-        if (comparison>0) return 1;
-        
+        if (comparison < 0) {
+            return -1;
+        }
+        if (comparison > 0) {
+            return 1;
+        }
+
         return 0;
     }
-    
-     @Override
+
+    @Override
     public Comparator<Tshirt> reversed() {
         return Comparator.super.reversed();
     }
-    
+
 }

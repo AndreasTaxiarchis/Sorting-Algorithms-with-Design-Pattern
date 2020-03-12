@@ -9,12 +9,12 @@ package assign3;
  *
  * @author ΑΝΤΡΕΑΣ
  */
-public class PaymentCash implements Strategy{
+public class PaymentCash implements Strategy {
 
     @Override
     public String Payment() {
         return "Cash";
-        
+
     }
-    
+
 }

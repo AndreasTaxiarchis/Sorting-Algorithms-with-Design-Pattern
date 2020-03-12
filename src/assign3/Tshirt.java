@@ -34,21 +34,26 @@ public class Tshirt {
         this.s = s;
     }
 
-    
-    
-    public String executeStrategy(){
-        return strategy.Payment();
-        
+    public Color getC() {
+        return c;
     }
 
+    public Fabric getF() {
+        return f;
+    }
+
+    public Size getS() {
+        return s;
+    }
+
+    public String executeStrategy() {
+        return strategy.Payment();
+
+    }
 
     @Override
     public String toString() {
-        return "Tshirt :" + "c=" + c + ", f=" + f + ", s=" + s + ", payment method: " + executeStrategy()+ ", price: "+(c.value+f.value+s.value)+'}';
+        return "Tshirt :" + "c=" + c + ", f=" + f + ", s=" + s + ", payment method: " + executeStrategy() + ", price: " + (c.value + f.value + s.value) + '}';
     }
-
-
-    
-    
 
 }

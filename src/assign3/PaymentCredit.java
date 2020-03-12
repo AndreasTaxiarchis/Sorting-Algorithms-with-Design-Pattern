@@ -14,8 +14,7 @@ public class PaymentCredit implements Strategy {
     @Override
     public String Payment() {
         return "Credit / Debit cards";
-        
-        
+
     }
-    
+
 }

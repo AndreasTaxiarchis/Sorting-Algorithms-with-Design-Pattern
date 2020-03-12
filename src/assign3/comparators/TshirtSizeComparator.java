@@ -12,16 +12,16 @@ import java.util.Comparator;
  *
  * @author Andreas
  */
-public class TshirtSizeComparator implements Comparator<Tshirt>{
+public class TshirtSizeComparator implements Comparator<Tshirt> {
 
     @Override
     public int compare(Tshirt o1, Tshirt o2) {
-         return (o1.s.ordinal() - o2.s.ordinal());
+        return (o1.s.ordinal() - o2.s.ordinal());
     }
 
     @Override
     public Comparator<Tshirt> reversed() {
         return Comparator.super.reversed();
     }
-    
+
 }

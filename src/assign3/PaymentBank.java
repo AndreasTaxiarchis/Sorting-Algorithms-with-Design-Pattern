@@ -9,13 +9,13 @@ package assign3;
  *
  * @author ΑΝΤΡΕΑΣ
  */
-public class PaymentBank implements Strategy{
+public class PaymentBank implements Strategy {
 
     @Override
     public String Payment() {
-        
+
         return "Money / Bank Transfer";
-         
+
     }
-    
+
 }
