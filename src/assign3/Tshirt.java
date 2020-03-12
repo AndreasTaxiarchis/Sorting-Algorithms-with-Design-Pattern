@@ -27,6 +27,14 @@ public class Tshirt {
         this.strategy = strategy;
 
     }
+
+    public Tshirt(Color c, Fabric f, Size s) {
+        this.c = c;
+        this.f = f;
+        this.s = s;
+    }
+
+    
     
     public String executeStrategy(){
         return strategy.Payment();
@@ -36,10 +44,10 @@ public class Tshirt {
 
     @Override
     public String toString() {
-        return "Το Tshirt που θέλετε είναι :" + "c=" + c + ", f=" + f + ", s=" + s + ", payment method: " + executeStrategy()+ ", price: "+(c.value+f.value+s.value)+'}';
+        return "Tshirt :" + "c=" + c + ", f=" + f + ", s=" + s + ", payment method: " + executeStrategy()+ ", price: "+(c.value+f.value+s.value)+'}';
     }
 
-   
+
     
     
 

@@ -5,117 +5,77 @@
  */
 package assign3;
 
+import assign3.comparators.TshirtColorComparator;
+import assign3.comparators.TshirtFabricComparator;
+import assign3.comparators.TshirtSizeComparator;
 
-import enums.Color;
-import enums.Fabric;
-import enums.Size;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+
+
+
+
 
 /**
  *
  * @author ΑΝΤΡΕΑΣ
  */
 public class Assign3 {
-    private static final Random rd = new Random();
-    private static List<Color> col= new ArrayList<>();
-    private static List<Fabric> fab= new ArrayList<>();
-    private static List<Size> siz= new ArrayList<>();
-    private static List<Tshirt> ts = new ArrayList<>();
+
     private static Tshirt tt;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
+        AllTshirts.printAll();
+        System.out.println("----------------------");
+        Tshirt[] ar = AllTshirts.RandomTshirts(45);
+        show(ar);
         
-        //Υλοποίηση να εκτυπώνει όλους τους δυνατούς συνδιασμούς των 3 enum με τις 
-        // αντίστοιχες τιμές τους 
+       
+        System.out.println("Sort BubbleSort Size Asc");
+         System.out.println("----------------------");
+        Tshirt[] sortedSAsc = SortingAlg.bubbleSort(ar , new TshirtSizeComparator() );
+        show(sortedSAsc);
+         
 
+        System.out.println("Sort BubbleSort Size Desc");
+         System.out.println("----------------------");
+        Tshirt[] sortedSDesc = SortingAlg.bubbleSort(ar , new TshirtSizeComparator().reversed() );
+        show(sortedSDesc);
         
-        for (Color c : Color.values()) {
-            col.add(c);
-
-        }
-
         
-        for (Fabric f : Fabric.values()) {
-            fab.add(f);
-
-        }
-
         
-        for (Size s : Size.values()) {
-            siz.add(s);
-
-        }
-//
-//        for (int i = 0; i < col.size(); i++) {
-//            for (int j = 0; j < fab.size(); j++) {
-//                for (int x = 0; x < siz.size(); x++) {
-//                        Tshirt t = new Tshirt(col.get(i),fab.get(j),siz.get(x), new PaymentCredit() );
-//                        System.out.println(t);
-//                        t = new Tshirt(col.get(i),fab.get(j),siz.get(x), new PaymentCash() );
-//                        System.out.println(t);
-//                        t = new Tshirt(col.get(i),fab.get(j),siz.get(x), new PaymentBank()  );
-//                        System.out.println(t);
-//                }
-//
-//            }
-//
-//        }
+        System.out.println("Sort BubbleSort Color Asc");
+         System.out.println("----------------------");
+        Tshirt[] sortedCAsc = SortingAlg.bubbleSort(ar , new TshirtColorComparator() );
+         show(sortedCAsc);
+         
+         
+       
+        System.out.println("Sort BubbleSort Color Desc");
+         System.out.println("----------------------");
+        Tshirt[] sortedCDesc = SortingAlg.bubbleSort(ar , new TshirtColorComparator().reversed() );
+         show(sortedCDesc);
+       
+        System.out.println("Sort BubbleSort Fabric Asc");
+         System.out.println("----------------------");
+        Tshirt[] sortedFAsc = SortingAlg.bubbleSort(ar , new TshirtFabricComparator() );
+         show(sortedFAsc);
+         
         
-//Eναλλακτική υλοποίηση να εκτυπώνει μόνο 3 ΤShirt με τις τιμές τους        
-
-//        Tshirt t = new Tshirt(Color.GREEN,Fabric.POLYESTER,Size.XL, new PaymentCredit() );
-//        System.out.println(t);
-//        t= new Tshirt(Color.VIOLET,Fabric.COTTON,Size.M, new PaymentCash() );
-//        System.out.println(t);
-//        t= new Tshirt(Color.INDIGO,Fabric.WOOL,Size.L, new PaymentBank());
-//        System.out.println(t);
-
-        
-        for(int i=0; i<45; i++) {
-            
-            ts.add(new Tshirt(cl(),fr(),sz()));
-
-        }
-
-        
+        System.out.println("Sort BubbleSort Fabric Desc");
+         System.out.println("----------------------");
+        Tshirt[] sortedFDesc = SortingAlg.bubbleSort(ar , new TshirtFabricComparator().reversed() );
+         show(sortedFDesc);
     }
     
+    public static void show(Tshirt[] s){
+        for (int i = 0; i < s.length; i++) {
+            System.out.println("Tshirt :" + "c=" + s[i].c + ", f=" + s[i].f + ", s=" + s[i].s);
+            
+        }
+         System.out.println("----------------------");
+    }
 
-    public static Color cl(){
-            
-            return col.get(rd.nextInt(col.size()));
-            
-        }
-    public static Fabric fr(){
-            
-            return fab.get(rd.nextInt(fab.size()));
-            
-        }
-    public static Size sz(){
-            
-            return siz.get(rd.nextInt(siz.size()));
-            
-        }
-    
-    
-    
- 
-    
 }
-    
-    
-    
-    
-
-    
-    
-    
-
-    
-    
-    
